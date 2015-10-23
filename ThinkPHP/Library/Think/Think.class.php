@@ -38,6 +38,7 @@ class Think {
       Storage::connect(STORAGE_TYPE);
 
       $runtimefile  = RUNTIME_PATH.APP_MODE.'~runtime.php';
+      
       if(!APP_DEBUG && Storage::has($runtimefile)){
           Storage::load($runtimefile);
       }else{
@@ -46,6 +47,7 @@ class Think {
           $content =  '';
           // 读取应用模式
           $mode   =   include is_file(CONF_PATH.'core.php')?CONF_PATH.'core.php':MODE_PATH.APP_MODE.'.php';
+          
           // 加载核心文件
           foreach ($mode['core'] as $file){
               if(is_file($file)) {
@@ -58,7 +60,7 @@ class Think {
           foreach ($mode['config'] as $key=>$file){
               is_numeric($key)?C(load_config($file)):C($key,load_config($file));
           }
-
+          
           // 读取当前应用模式对应的配置文件
           if('common' != APP_MODE && is_file(CONF_PATH.'config_'.APP_MODE.CONF_EXT))
               C(load_config(CONF_PATH.'config_'.APP_MODE.CONF_EXT));  
@@ -116,6 +118,7 @@ class Think {
 
       // 记录加载文件时间
       G('loadTime');
+      
       // 运行应用
       App::run();
     }
@@ -146,6 +149,10 @@ class Think {
      * @return void
      */
     public static function autoload($class) {
+        global $cdebug;
+        if($cdebug){
+            dump($class);
+        }
         // 检查是否存在映射
         if(isset(self::$_map[$class])) {
             include self::$_map[$class];
