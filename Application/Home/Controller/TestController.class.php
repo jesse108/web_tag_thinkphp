@@ -7,7 +7,7 @@ $cdebug = true;
 class TestController extends Controller{
     
     public function index(){
-        
+        vendor($class);
         $obj = new IndexController();
         
     }
