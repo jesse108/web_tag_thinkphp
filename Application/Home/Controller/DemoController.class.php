@@ -1,15 +1,15 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Common\Lib\Category;
 
 class DemoController extends Controller{
     
     public function index(){
-        $condition = array(
-            'id' => 1,
-        );
-        $datas = D('test')->where($condition)->select();
+        $datas = D('test')->getPk();
+        $datas = Category::Fetch(array(1,2,3));
         dump($datas);
+        $this->display();
     }
     
 }

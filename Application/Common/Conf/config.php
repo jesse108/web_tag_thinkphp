@@ -15,4 +15,11 @@ return array(
     'db_pwd'     =>   '123456',
     'db_port'    =>    3306,
     'db_name'    =>    'web_tag', 
+    
+    /////////
+    'APP_SUB_DOMAIN_DEPLOY' => 1,
+    'APP_SUB_DOMAIN_RULES' => array(
+        'admin.local.webtag.com' => 'Admin',
+        'local.webtag.com' => 'Home',
+    ),
 );
