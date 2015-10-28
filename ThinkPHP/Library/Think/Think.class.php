@@ -149,10 +149,6 @@ class Think {
      * @return void
      */
     public static function autoload($class) {
-        global $cdebug;
-        if($cdebug){
-            dump($class);
-        }
         // 检查是否存在映射
         if(isset(self::$_map[$class])) {
             include self::$_map[$class];
