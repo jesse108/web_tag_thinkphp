@@ -1002,6 +1002,7 @@ function U($url='',$vars='',$suffix=true,$domain=false) {
             $module =   (defined('BIND_MODULE') && BIND_MODULE==$module )? '' : $module;
             $url    =   __APP__.'/'.($module?$module.MODULE_PATHINFO_DEPR:'').implode($depr,array_reverse($var));
         }
+        
         if($urlCase){
             $url    =   strtolower($url);
         }

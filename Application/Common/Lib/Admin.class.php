@@ -1,5 +1,5 @@
 <?php
-namespace Admin\Lib;
+namespace Common\Lib;
 use Common\Config\AdminConfig;
 use Common\Lib\System;
 use Admin\Validate\AdminValidate;

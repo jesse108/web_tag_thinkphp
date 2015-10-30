@@ -53,4 +53,8 @@ class System{
         }
         return implode(',', $notices);
     }
+    
+    public static function test(){
+        echo 'a';
+    }
 }

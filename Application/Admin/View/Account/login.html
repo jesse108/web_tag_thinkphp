@@ -1,6 +1,19 @@
-<include file="Application/Admin/View/block/html_header.html" />
-<div>
+<include file="Application/Admin/View/block/html_header.html"  body_class="login_body"/>
 
-
-</div>
+	<form class="form  form-login"  action="__CONTROLLER__"  method="post">
+		<h2>请先登陆</h2>
+		<include file="Application/Admin/View/block/message.html" />
+		<input class="form-control login_input"   type="text" placeholder="用户名"   name="username"  value="{$username}"/>
+		<input class="form-control login_input"   type="password" placeholder="密码"    name="password" />
+		
+		<div class="login_checkbox">
+			<label>
+				<input type="checkbox" name="remember"   value="1" checked/>
+				记住我
+			</label>
+		</div>
+		
+		<button class="btn btn-lg btn-primary btn-block"   type="submit">登陆</button>
+	</form>
+	
 <include file="Application/Admin/View/block/html_footer.html" />

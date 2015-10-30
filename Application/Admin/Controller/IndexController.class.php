@@ -5,7 +5,6 @@ use Think\Controller;
 class IndexController extends Controller{
     
     public function index(){
-        echo 'a';
-        M();
+        echo "你已经登陆";
     }
 }
