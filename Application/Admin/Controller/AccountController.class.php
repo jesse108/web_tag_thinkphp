@@ -2,6 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 use Common\Lib\Admin;
+use Common\Lib\System;
 
 class AccountController extends Controller{
     
@@ -14,7 +15,10 @@ class AccountController extends Controller{
             $remember = $remember ? true : false;
             
             $user = Admin::Login($username, $password,$remember);
-            
+            if($user){
+                System::AddError("登陆成功");
+                redirect("/");
+            }
         }
         
         $this->assign('title','登陆');
@@ -22,7 +26,11 @@ class AccountController extends Controller{
     }
     
     public function logout(){
-        
+        Admin::Logout();
+        $url = U('Admin/account/login',null,false);
+        dump($url);
+        exit;
+        redirect($url);
     }
     
 }

@@ -19,7 +19,10 @@ return array(
     /////////
     'APP_SUB_DOMAIN_DEPLOY' => 1,
     'APP_SUB_DOMAIN_RULES' => array(
-        'admin.local.webtag.com' => 'Admin',
-        'local.webtag.com' => 'Home',
+        'admin.local' => 'Admin',
+        'home.local' => 'Home',
     ),
+    
+    /////////////
+    'url_model' => URL_REWRITE, 
 );

@@ -141,6 +141,18 @@ class Admin{
         return $loginUser;
     }
     
+    public static function Logout(){
+        $sessionKey = SESSION_LOGIN_ADMIN;
+        $cookieID = COOKIE_LOGIN_ADMIN_ID;
+        $cookieKey = COOKIE_LOGIN_ADMIN_KEY;
+        
+        self::$loginUser = null;
+        session($sessionKey,null);
+        cookie($cookieID,null);
+        cookie($cookieKey,null);
+        return true;
+    }
+    
 
     public static function EncodePassword($password){
         $key = AdminConfig::$pwdKey;
